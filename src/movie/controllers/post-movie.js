@@ -21,7 +21,6 @@ export default function makePostMovie ({ addMovie, getFullInfo, logger }) {
 
       return createResponse(201, { ...posted })
     } catch (e) {
-      // TODO: write looger.
       logger.error(e)
 
       return createResponse(400, { error: e.message })

@@ -21,7 +21,8 @@
     "cuid": "^2.1.6",
     "debug": "~2.6.9",
     "express": "~4.16.0",
-    "mongodb": "^3.3.2"
+    "mongodb": "^3.3.2",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",

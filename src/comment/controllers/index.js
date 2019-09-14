@@ -2,11 +2,16 @@ import { addComment, showComments } from '../use-cases'
 import makePostMovies from './post-comments'
 import makeGetComments from './get-comments'
 
-// TODO: logger
-const getComments = makeGetComments({ showComments })
+import logger from '../../logger'
+
+const getComments = makeGetComments({
+  showComments,
+  logger
+})
+
 const postComments = makePostMovies({
   addComment,
-  logger: { error: () => {} }
+  logger
 })
 
 const commentController = Object.freeze({

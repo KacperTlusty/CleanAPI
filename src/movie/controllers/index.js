@@ -3,13 +3,16 @@ import makeGetMovies from './get-movies'
 import makePostMovies from './post-movie'
 import { getFullInfo } from '../helpers'
 
-// TODO: add full info
-// TODO: logger
-const getMovies = makeGetMovies({ showMovies })
+import logger from '../../logger'
+
+const getMovies = makeGetMovies({
+  showMovies,
+  logger
+})
 const postMovie = makePostMovies({
   addMovie,
   getFullInfo,
-  logger: { error: () => {} }
+  logger
 })
 
 const movieController = Object.freeze({
