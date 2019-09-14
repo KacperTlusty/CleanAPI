@@ -21,10 +21,8 @@ app.post('/movies', makeMovieCallback(postMovie))
 app.get('/comments', makeCommentCallback(getComments))
 app.post('/comments', makeCommentCallback(postComments))
 
-if (process.env.NODE_ENV === 'dev') {
-  app.listen(3000, () => {
-    console.log('listening on port 3000')
-  })
-}
+app.listen(process.env.PORT || 3000, () => {
+  console.log('listening on port 3000')
+})
 
 export default app

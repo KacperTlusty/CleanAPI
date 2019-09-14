@@ -1,6 +1,6 @@
 import makeAddComment from './add-comment'
-import fakeDb from '../../test/db'
-import makeFakeComment from '../../test/comment'
+import fakeDb from '../../../test/db'
+import makeFakeComment from '../../../test/comment'
 import makeCommentsDb from '../data-access/data-access'
 
 describe('add comment', () => {
