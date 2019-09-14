@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export default async function getInfo (title) {
-  console.log(process.env.OMDB_API)
   return axios.get(`${process.env.OMDB_API}`, {
     params: {
       apikey: process.env.OMDB_APIKEY,
