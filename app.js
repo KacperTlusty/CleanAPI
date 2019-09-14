@@ -1,20 +1,24 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express'
+import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+import { getMovies, postMovie } from './movie/controllers'
+import makeMovieCallback from './movie/callback'
 
-var app = express();
+dotenv.config()
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.get('/movies', makeMovieCallback(getMovies))
+app.post('/movies', makeMovieCallback(postMovie))
 
-module.exports = app;
+if (process.env.NODE_ENV === 'dev') {
+  app.listen(3000, () => {
+    console.log('listening on port 3000')
+  })
+}
+
+export default app

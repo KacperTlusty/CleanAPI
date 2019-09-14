@@ -1,4 +1,4 @@
-import makeFakeMovie from '../test/movie'
+import makeFakeMovie from '../../test/movie'
 import makeMovie from './'
 
 describe('movie', () => {
