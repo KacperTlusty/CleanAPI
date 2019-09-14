@@ -20,6 +20,7 @@ export async function closeDb () {
 
 export async function clearDb () {
   await db.collection('movies').deleteMany({})
+  await db.collection('comments').deleteMany({})
   return true
 }
 

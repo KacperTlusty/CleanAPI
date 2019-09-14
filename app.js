@@ -2,6 +2,9 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 
+import { getComments, postComments } from './comment/controllers'
+import makeCommentCallback from './comment/callback'
+
 import { getMovies, postMovie } from './movie/controllers'
 import makeMovieCallback from './movie/callback'
 
@@ -14,6 +17,9 @@ app.use(bodyParser.json())
 
 app.get('/movies', makeMovieCallback(getMovies))
 app.post('/movies', makeMovieCallback(postMovie))
+
+app.get('/comments', makeCommentCallback(getComments))
+app.post('/comments', makeCommentCallback(postComments))
 
 if (process.env.NODE_ENV === 'dev') {
   app.listen(3000, () => {
