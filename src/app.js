@@ -21,6 +21,10 @@ app.post('/movies', makeMovieCallback(postMovie))
 app.get('/comments', makeCommentCallback(getComments))
 app.post('/comments', makeCommentCallback(postComments))
 
+app.use(function (_, res) {
+  return res.status(404).json({ error: 'Not found.' })
+})
+
 app.listen(process.env.PORT || 3000, () => {
   console.log('listening on port 3000')
 })
