@@ -1,6 +1,8 @@
 {
   "name": "movies-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "API for storing movies and comments. Provides with two resources: /movies and /comments",
+  "author": "Kacper Tłusty",
   "private": true,
   "scripts": {
     "build": "npm run clean && babel src -d dist",
