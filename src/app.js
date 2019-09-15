@@ -24,9 +24,9 @@ app.post('/comments', makeCommentCallback(postComments))
 app.use(function (_, res) {
   return res.status(404).json({ error: 'Not found.' })
 })
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log('listening on port 3000')
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log(`listening on port ${port}`)
 })
 
 export default app

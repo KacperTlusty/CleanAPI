@@ -9,6 +9,8 @@ RUN npm install
 
 COPY . /usr/src/app
 
-EXPOSE 3000
+# EXPOSE 3000
+RUN adduser --disabled-password apiuser
+USER apiuser
 
 CMD ["npm", "start"]

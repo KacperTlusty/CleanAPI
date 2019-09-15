@@ -10,7 +10,7 @@
     "coverage": "jest . --coverage",
     "db": "babel-node ./db/index.js",
     "dev": "nodemon --exec babel-node ./src/app.js",
-    "start": "npm run clean && npm run build && npm run db && cd dist && node app.js",
+    "start": "npm run clean && npm run build && npm run db && cd dist && PORT=$PORT node app.js",
     "test": "jest . --watch"
   },
   "dependencies": {
