@@ -42,3 +42,119 @@ You can always run the code in development mode.
 ```bash
 npm run dev
 ```
+
+## Endpoints
+
+### POST /movies
+Creates new movie or returns existing one. Fetches missing infos from omdbapi. Title in body is required.
+
+#### Request body
+```json
+{
+	"title": "Lord of the rings"
+}
+```
+
+#### Response body
+```json
+{
+    "id": "ck0kmnqtd00003cr4bxx3a687",
+    "actors": "Alan Howard, Noel Appleby, Sean Astin, Sala Baker",
+    "country": "New Zealand, USA",
+    "director": "Peter Jackson",
+    "genre": "Adventure, Drama, Fantasy",
+    "hash": "ee789ec3b581d36f901d10f28046db68",
+    "language": "English, Sindarin",
+    "rated": "PG-13",
+    "released": "19 Dec 2001",
+    "runtime": "178 min",
+    "title": "Lord of the rings",
+    "writer": "J.R.R. Tolkien (novel), Fran Walsh (screenplay), Philippa Boyens (screenplay), Peter Jackson (screenplay)",
+    "year": "2001"
+}
+```
+
+### GET /movies
+Returns array of all movies present in database.
+Currently quering is not supported (but may be in the future).
+#### Response body
+```json
+[
+    {
+        "id": "ck0kmnqtd00003cr4bxx3a687",
+        "actors": "Alan Howard, Noel Appleby, Sean Astin, Sala Baker",
+        "country": "New Zealand, USA",
+        "director": "Peter Jackson",
+        "genre": "Adventure, Drama, Fantasy",
+        "hash": "ee789ec3b581d36f901d10f28046db68",
+        "language": "English, Sindarin",
+        "rated": "PG-13",
+        "released": "19 Dec 2001",
+        "runtime": "178 min",
+        "title": "Lord of the rings",
+        "writer": "J.R.R. Tolkien (novel), Fran Walsh (screenplay), Philippa Boyens (screenplay), Peter Jackson (screenplay)",
+        "year": "2001"
+    },
+    {
+        "id": "ck0kz8w4y00003cvq00ohfm9l",
+        "actors": "Mike Myers, Eddie Murphy, Cameron Diaz, John Lithgow",
+        "country": "USA",
+        "director": "Andrew Adamson, Vicky Jenson",
+        "genre": "Animation, Adventure, Comedy, Family, Fantasy",
+        "hash": "353c42243a70e8e6e875baecd0f29e00",
+        "language": "English",
+        "rated": "PG",
+        "released": "18 May 2001",
+        "runtime": "90 min",
+        "title": "Shrek",
+        "writer": "William Steig (based upon the book by), Ted Elliott, Terry Rossio, Joe Stillman, Roger S.H. Schulman, Cody Cameron (additional dialogue), Chris Miller (additional dialogue), Conrad Vernon (additional dialogue)",
+        "year": "2001"
+    }
+]
+```
+
+### POST /comments
+Creates new comment or returns existing one. Requires: author and text in request's body.
+
+#### Request body
+
+```json
+{
+	"author": "John Doe",
+	"text": "Hello world!"
+}
+```
+
+#### Response body
+
+```json
+{
+    "id": "ck0kzat7k00013cvq3jsk697a",
+    "author": "John Doe",
+    "text": "Hello world!",
+    "date": 1568551896416,
+    "hash": "425270d2124e63c6a12d9025beaa4b7a"
+}
+```
+
+### GET /comments
+Returns array of all comments present in database.
+
+#### Response body
+```json
+[
+    {
+        "id": "ck0kzat7k00013cvq3jsk697a",
+        "author": "John Doe",
+        "text": "Hello world!",
+        "date": 1568551896416,
+        "hash": "425270d2124e63c6a12d9025beaa4b7a"
+    },
+    {
+        "id": "ck0kzc84l00023cvqdgt8f41d",
+        "author": "Joe Dohn",
+        "text": "Hello universe!",
+        "date": 1568551962405,
+        "hash": "a9a2659e209c4aa53769db1c5062e150"
+    }
+]
